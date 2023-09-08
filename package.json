@@ -1,6 +1,6 @@
 {
   "name": "kasoti-game",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Guessing the number game",
   "type": "module",
   "main": "index.js",
