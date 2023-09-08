@@ -3,7 +3,7 @@ import chalk from "chalk";
 
 // step 1 generate a random number
 
-const randomNumber: number = Math.floor(Math.random()*100)+1
+const targetNumber: number = Math.floor(Math.random() * 100) + 1;
 let remainingChances = 6;
 
 // console.log(randomNumber)
@@ -11,71 +11,76 @@ let remainingChances = 6;
 // step 2
 
 function validateNumber(input: string): boolean | string {
-
-const number = parseFloat(input);
-if (isNaN(number)) {
+  const number = parseFloat(input);
+  if (isNaN(number)) {
     return "Please enter a valid number.";
-}
-if (number < 0 || number > 100) {
+  }
+  if (number < 0 || number > 100) {
     return "Please guess a number between 1 to hundred.";
-
-}   
-return true;
+  }
+  return true;
 }
 
 async function askForGuess() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "guess",
+        message: "Please guess a number between 1 and 100:",
+        validate: validateNumber,
+      },
+    ])
 
-inquirer.prompt([{
+    // Step 3
 
-    type: 'input',
-    name: 'guess',
-    message: 'Please guess a number between 1 and 100:',
-    validate: validateNumber,
+    .then((answers: any) => {
+      const guessedNumber = parseInt(answers.guess);
 
-}])
-
-// Step 3
-
-.then ((answers: any) => {
-    const gussedNumber = parseInt(answers.guess)
-
-    if (gussedNumber === randomNumber) {
-        console.log(chalk.bgBlue.yellow(`congratulations! you guessed the number ${randomNumber} corectly!`))
-
-        process.exit(0)
-    }
-
-    else if (gussedNumber < randomNumber) 
-    {
+      if (guessedNumber === targetNumber) {
+        console.log(
+          chalk.green(
+            `Congratulations! You guessed the number {bold ${targetNumber}} correctly.`
+          )
+        );
+        process.exit(0);
+      } else if (guessedNumber < targetNumber) {
         remainingChances--;
-        console.log(chalk.bgRed.white(`To Low, kindly guess again your remaining chances left ${remainingChances}:`))
-
-        if (remainingChances = 0) {
-        console.log(chalk.green.bgRed(`We are really sorry you have missed all your chances correct number is ${randomNumber}`));
+        console.log(
+          chalk.yellow(
+            `Too low! You have {bold ${remainingChances}} chances left.`
+          )
+        );
+        if (remainingChances === 0) {
+          console.log(
+            chalk.red(
+              `Sorry, you've run out of chances. The correct number was {bold ${targetNumber}}.`
+            )
+          );
+          process.exit(0);
         } else {
-            askForGuess()
-
+          askForGuess();
         }
-
-
-    }
-
-    else if (gussedNumber > randomNumber) 
-    {
+      } else {
         remainingChances--;
-        console.log(chalk.bgRed.white(`To high, kindly guess again your remaining chances left ${remainingChances}:`))
-
-        if (remainingChances = 0) {
-        console.log(chalk.green.bgRed(`We are really sorry you have missed all your chances correct number is ${randomNumber}`));
-        } else 
-        {askForGuess()}
-
-
-    }
-
-
+        console.log(
+          chalk.yellow(
+            `Too high! You have ${remainingChances} chances left.`
+          )
+        );
+        if (remainingChances === 0) {
+          console.log(
+            chalk.red(
+              `Sorry, you've run out of chances. The correct number was ${targetNumber}.`
+            )
+          );
+          process.exit(0);
+        } else {
+          askForGuess();
+        }
+      }
+    });
 }
-)
-}
 
-askForGuess()
+askForGuess();
+
