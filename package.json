@@ -1,12 +1,17 @@
 {
-  "name": "number-gussing-game",
+  "name": "guess-the-number-game",
   "version": "1.0.0",
+  "description": "",
   "type": "module",
-  "description": "A number gussing game where computer will genrate a random number between 1 to 100 and user need to guess that number.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Muhammad Kamran",
-  "license": "ISC"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.10"
+  }
 }
