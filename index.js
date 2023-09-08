@@ -29,14 +29,14 @@ async function askForGuess() {
         .then((answers) => {
         const guessedNumber = parseInt(answers.guess);
         if (guessedNumber === targetNumber) {
-            console.log(chalk.green(`Congratulations! You guessed the number {bold ${targetNumber}} correctly.`));
+            console.log(chalk.green.bgBlackBright(`Congratulations! You guessed the number ${targetNumber} correctly.`));
             process.exit(0);
         }
         else if (guessedNumber < targetNumber) {
             remainingChances--;
-            console.log(chalk.yellow(`Too low! You have {bold ${remainingChances}} chances left.`));
+            console.log(chalk.bgRed.yellow(`Too low! You have ${remainingChances} chances left.`));
             if (remainingChances === 0) {
-                console.log(chalk.red(`Sorry, you've run out of chances. The correct number was {bold ${targetNumber}}.`));
+                console.log(chalk.bgRed.yellow(`Sorry, you've run out of chances. The correct number was ${targetNumber}.`));
                 process.exit(0);
             }
             else {
@@ -45,7 +45,7 @@ async function askForGuess() {
         }
         else {
             remainingChances--;
-            console.log(chalk.yellow(`Too high! You have ${remainingChances} chances left.`));
+            console.log(chalk.bgRed.yellow(`Too high! You have ${remainingChances} chances left.`));
             if (remainingChances === 0) {
                 console.log(chalk.red(`Sorry, you've run out of chances. The correct number was ${targetNumber}.`));
                 process.exit(0);
