@@ -2,6 +2,8 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 // step 1 generate a random number
 const targetNumber = Math.floor(Math.random() * 100) + 1;
+// let a = Math.random()
+// console.log(a)
 let remainingChances = 6;
 // console.log(randomNumber)
 // step 2
@@ -11,7 +13,7 @@ function validateNumber(input) {
         return "Please enter a valid number.";
     }
     if (number < 0 || number > 100) {
-        return "Please guess a number between 1 to hundred.";
+        return "Please guess a number between 1 and 100.";
     }
     return true;
 }
