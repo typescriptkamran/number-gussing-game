@@ -32,7 +32,7 @@ async function askForGuess() {
         .then((answers) => {
         const guessedNumber = parseInt(answers.guess);
         if (guessedNumber === targetNumber) {
-            console.log(chalk.green.bgBlackBright(`Congratulations! You guessed the number ${targetNumber} correctly.`));
+            console.log(chalk.yellow.bgRed(`Congratulations! You guessed the number ${targetNumber} correctly.`));
             process.exit(0);
         }
         else if (guessedNumber < targetNumber) {

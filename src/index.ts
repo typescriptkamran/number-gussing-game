@@ -46,7 +46,7 @@ async function askForGuess() {
 
       if (guessedNumber === targetNumber) {
         console.log(
-          chalk.green.bgBlackBright(
+          chalk.yellow.bgRed(
             `Congratulations! You guessed the number ${targetNumber} correctly.`
           )
         );
