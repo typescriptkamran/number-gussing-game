@@ -1,14 +1,17 @@
 {
-  "name": "guess-the-number-game",
+  "name": "kasoti-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "Guuessing the number game",
   "type": "module",
   "main": "index.js",
+  "bin": {
+    "kasoti-game": "./src/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Muhammad Kamran",
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.3.0",
