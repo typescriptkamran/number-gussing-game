@@ -1,9 +1,13 @@
 {
   "name": "kasoti-game",
   "version": "1.0.1",
-  "description": "Guuessing the number game",
+  "description": "Guessing the number game",
   "type": "module",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typescriptkamran/number-guessing-game.git"
+  },
   "bin": {
     "kasoti-game": "./src/index.js"
   },
