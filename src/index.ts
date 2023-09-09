@@ -4,16 +4,22 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 
+console.log(chalk.green(`
+***********************************************************
+               Welcome to Kasoti Game
 
-console.log(chalk.bgGreenBright.black(`
-****************Rules of of Kasoti Game******************
+****************Rules of Kasoti Game************************
 ` ))
-console.log(chalk.bgYellow.black(`
+
+
+console.log(chalk.yellow(`
 Computer will generate a rendom number between 1 and 100. 
       You have 6 chances to guess the number.
       computer will give you friendly clues. 
 
-******************Enjoy your game!************************`))
+`))
+
+console.log(chalk.bgGreen(`*******************Enjoy your Game time************************`))
 
 // step 1 generate a random number
 
