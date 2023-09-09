@@ -1,6 +1,15 @@
 #!/usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
+console.log(chalk.bgGreenBright.black(`
+****************Rules of of Kosoti Game******************
+`));
+console.log(chalk.bgYellow.black(`
+Computer will generate a rendom number between 1 and 100. 
+      You have 6 chances to guess the number.
+      computer will give you friendly clues. 
+
+******************Enjoy your game!************************`));
 // step 1 generate a random number
 const targetNumber = Math.floor(Math.random() * 100) + 1;
 // let a = Math.random()
