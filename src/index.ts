@@ -6,7 +6,7 @@ import chalk from "chalk";
 
 
 console.log(chalk.bgGreenBright.black(`
-****************Rules of of Kosoti Game******************
+****************Rules of of Kasoti Game******************
 ` ))
 console.log(chalk.bgYellow.black(`
 Computer will generate a rendom number between 1 and 100. 
